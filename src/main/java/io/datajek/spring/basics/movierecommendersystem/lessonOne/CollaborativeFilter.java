@@ -1,5 +1,8 @@
 package io.datajek.spring.basics.movierecommendersystem.lessonOne;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CollaborativeFilter implements Filter {
     @Override
     public String[] getRecommendations(String movie) {
