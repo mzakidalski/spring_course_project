@@ -7,16 +7,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class RecommenderImpl {
 
-    @Autowired
-    @Qualifier("CBF")
-    private Filter contentBasedFilter;
+    private Filter filter;
 
-    public RecommenderImpl(Filter contentBasedFilter) {
-        this.contentBasedFilter = contentBasedFilter;
+    public RecommenderImpl(@Qualifier("collaborativeFilter") Filter filter) {
+        this.filter = filter;
+        System.out.println("Constructure invoked");
     }
 
     public String[] recommendMovies(String movie) {
-        System.out.println(this.contentBasedFilter);
-        return contentBasedFilter.getRecommendations(movie);
+        System.out.println(this.filter);
+        return filter.getRecommendations(movie);
     }
 }
