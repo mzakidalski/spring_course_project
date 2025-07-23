@@ -7,14 +7,14 @@ import org.springframework.stereotype.Component;
 public class RecommenderImpl {
 
     @Autowired
-    private Filter filter;
+    private Filter contentBasedFilter;
 
-    public RecommenderImpl(Filter filter) {
-        this.filter = filter;
+    public RecommenderImpl(Filter contentBasedFilter) {
+        this.contentBasedFilter = contentBasedFilter;
     }
 
     public String[] recommendMovies(String movie) {
-        System.out.println(this.filter);
-        return filter.getRecommendations(movie);
+        System.out.println(this.contentBasedFilter);
+        return contentBasedFilter.getRecommendations(movie);
     }
 }
