@@ -7,11 +7,13 @@ import io.datajek.spring.basics.movierecommendersystem.lessonOne.RecommenderImpl
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.PropertySource;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
 @SpringBootApplication
+@PropertySource("classpath:application.properties")
 public class MovieRecommenderSystemApplication {
 
     public static void main(String[] args) {
@@ -24,7 +26,9 @@ public class MovieRecommenderSystemApplication {
         ApplicationContext ctx = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
         RecommenderImpl recommender = ctx.getBean(RecommenderImpl.class);
 
-        String[] result = recommender.recommendMovies("Finding Dory");
+        String favoriteMovie = recommender.getFavoriteMovie();
+        System.out.println("Favorite movie: " + favoriteMovie);
+        String[] result = recommender.recommendMovies(favoriteMovie);
         System.out.printf("result = " + Arrays.toString(result) + "\n");
 
         ContentBasedFilter filter = ctx.getBean(ContentBasedFilter.class);
