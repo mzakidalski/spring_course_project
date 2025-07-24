@@ -1,11 +1,12 @@
-package io.datajek.spring.basics.movierecommendersystem.lessonOne;
+package other;
 
+import io.datajek.spring.basics.movierecommendersystem.lessonOne.Filter;
+import io.datajek.spring.basics.movierecommendersystem.lessonOne.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ContentBasedFilter implements Filter{
+public class ContentBasedFilter implements Filter {
 
     //for keeping track of instances created
     private static int instances= 0;
