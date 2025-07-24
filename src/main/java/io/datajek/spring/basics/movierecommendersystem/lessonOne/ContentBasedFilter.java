@@ -27,6 +27,7 @@ public class ContentBasedFilter implements Filter{
     }
 
     public String[] getRecommendations(String movie) {
+        var a = getMovie();
         return new String[]{"Happy Feet", "Ice Age", "Shark Tale"};
     }
 }
