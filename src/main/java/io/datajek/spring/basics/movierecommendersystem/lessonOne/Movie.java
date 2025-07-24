@@ -1,5 +1,7 @@
 package io.datajek.spring.basics.movierecommendersystem.lessonOne;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -18,7 +20,17 @@ public class Movie {
 
     public Movie() {
         instances++;
-        System.out.println("Movie constructor called");
+        System.out.println("In Movie constructor called");
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.printf("In Movie PostConstruct called\n");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.printf("In Movie PreDestroy called\n");
     }
 
     public static int getInstances() {
