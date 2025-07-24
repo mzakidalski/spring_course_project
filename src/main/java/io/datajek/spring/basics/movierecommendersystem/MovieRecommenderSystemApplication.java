@@ -24,9 +24,23 @@ public class MovieRecommenderSystemApplication {
         RecommenderImpl recommender = ctx.getBean(RecommenderImpl.class);
 
         String[] result = recommender.recommendMovies("Finding Dory");
-
         System.out.printf(Arrays.toString(result));
 
+        ContentBasedFilter filterOne = ctx.getBean(ContentBasedFilter.class);
+        ContentBasedFilter filterTwo = ctx.getBean(ContentBasedFilter.class);
+        ContentBasedFilter filterThree = ctx.getBean(ContentBasedFilter.class);
+
+        System.out.println("Singleton filter " + filterOne);
+        System.out.println("Singleton filter " + filterTwo);
+        System.out.println("Singleton filter " + filterThree);
+
+        CollaborativeFilter cf1 = ctx.getBean(CollaborativeFilter.class);
+        CollaborativeFilter cf2 = ctx.getBean(CollaborativeFilter.class);
+        CollaborativeFilter cf3 = ctx.getBean(CollaborativeFilter.class);
+
+        System.out.println("Prototype filter " + cf1);
+        System.out.println("Prototype filter " + cf2);
+        System.out.println("Prototype filter " + cf3);
     }
 
 }
