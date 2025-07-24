@@ -1,12 +1,10 @@
 package io.datajek.spring.basics.movierecommendersystem.lessonOne;
 
-import jakarta.inject.Inject;
-import jakarta.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Named
+@Component
 public class RecommenderImpl {
 
     private Filter filter;
