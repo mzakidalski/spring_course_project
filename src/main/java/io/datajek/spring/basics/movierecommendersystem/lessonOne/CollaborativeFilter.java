@@ -5,7 +5,10 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
+
+@Named
 public class CollaborativeFilter implements Filter {
     @Override
     public String[] getRecommendations(String movie) {
