@@ -27,19 +27,19 @@ public class MovieRecommenderSystemApplication {
         String[] result = recommender.recommendMovies("Finding Dory");
         System.out.printf("result = " + Arrays.toString(result) + "\n");
 
-//        ContentBasedFilter filter = ctx.getBean(ContentBasedFilter.class);
-//        Movie movieOne = filter.getMovie();
-//        Movie movieTwo = filter.getMovie();
-//        Movie movieThree = filter.getMovie();
-//        Movie movieFour = filter.getMovie();
-//
-//        System.out.println(movieOne);
-//        System.out.println(movieTwo);
-//        System.out.println(movieThree);
-//        System.out.println(movieFour);
-//
-//        System.out.println("\nContentBasedFilter instances created: " + ContentBasedFilter.getInstances());
-//        System.out.println("Movie instances created: "+ Movie.getInstances());
+        ContentBasedFilter filter = ctx.getBean(ContentBasedFilter.class);
+        Movie movieOne = filter.getMovie();
+        Movie movieTwo = filter.getMovie();
+        Movie movieThree = filter.getMovie();
+        Movie movieFour = filter.getMovie();
+
+        System.out.println(movieOne);
+        System.out.println(movieTwo);
+        System.out.println(movieThree);
+        System.out.println(movieFour);
+
+        System.out.println("\nContentBasedFilter instances created: " + ContentBasedFilter.getInstances());
+        System.out.println("Movie instances created: "+ Movie.getInstances());
     }
 
 }
