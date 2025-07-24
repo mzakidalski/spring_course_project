@@ -4,14 +4,17 @@ import io.datajek.spring.basics.movierecommendersystem.lessonOne.CollaborativeFi
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.ContentBasedFilter;
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.Movie;
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.RecommenderImpl;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.boot.SpringApplication;
+//import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 import java.sql.SQLOutput;
 import java.util.Arrays;
 
-@SpringBootApplication
+//@SpringBootApplication
+@ComponentScan(basePackages = {"io"})
 public class MovieRecommenderSystemApplication {
 
     public static void main(String[] args) {
@@ -21,7 +24,12 @@ public class MovieRecommenderSystemApplication {
         //String[] result = recommender.recommendMovies("Finding Dory");
         //System.out.println(Arrays.toString(result));
 
-        ApplicationContext ctx = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
+        //ApplicationContext ctx = SpringApplication.run(MovieRecommenderSystemApplication.class, args);
+
+        //to this:
+        AnnotationConfigApplicationContext ctx =
+                new AnnotationConfigApplicationContext(MovieRecommenderSystemApplication.class);
+
         RecommenderImpl recommender = ctx.getBean(RecommenderImpl.class);
 
         String[] result = recommender.recommendMovies("Finding Dory");
@@ -40,6 +48,7 @@ public class MovieRecommenderSystemApplication {
 
         System.out.println("\nContentBasedFilter instances created: " + ContentBasedFilter.getInstances());
         System.out.println("Movie instances created: "+ Movie.getInstances());
+        ctx.close();
     }
 
 }
