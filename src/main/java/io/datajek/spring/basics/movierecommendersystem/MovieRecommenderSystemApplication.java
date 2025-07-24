@@ -2,6 +2,7 @@ package io.datajek.spring.basics.movierecommendersystem;
 
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.CollaborativeFilter;
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.ContentBasedFilter;
+import io.datajek.spring.basics.movierecommendersystem.lessonOne.Movie;
 import io.datajek.spring.basics.movierecommendersystem.lessonOne.RecommenderImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,17 @@ public class MovieRecommenderSystemApplication {
         String[] result = recommender.recommendMovies("Finding Dory");
         System.out.printf("result = " + Arrays.toString(result) + "\n");
 
+        ContentBasedFilter filter = ctx.getBean(ContentBasedFilter.class);
+        Movie movieOne = filter.getMovie();
+        Movie movieTwo = filter.getMovie();
+        Movie movieThree = filter.getMovie();
+
+        System.out.println(movieOne);
+        System.out.println(movieTwo);
+        System.out.println(movieThree);
+
+        System.out.println("\nContentBasedFilter instances created: " + ContentBasedFilter.getInstances());
+        System.out.println("Movie instances created: "+ Movie.getInstances());
     }
 
 }
